@@ -13,18 +13,12 @@ def csvImport(csv_file,index_name):
 
 
 
-def ESQuery():
+def query(index,body):
 	esclient = Elasticsearch(['localhost:9200'])
 	response = esclient.search(
-	index='movies',
+	index=index,
 
-	body = {
-	    "query": {
-	        "query_string": {
-	            "query": "drama"
-	        }
-	    }
-	}
+	body = body
 	)
 
 	print(response)
