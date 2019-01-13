@@ -3,21 +3,20 @@
 from elasticsearch import Elasticsearch
 import sys
 import helpers
-# if sys.argv[1] == "add":
+# if sys.argv[1].lower() == "add":
 # # Add index
 
-# if sys.argv[1] == "delete":
+# if sys.argv[1].lower() == "delete":
 # # Delete index
 
-# if sys.argv[1] == "addentry":
-# # Add Entry to index
+# if sys.argv[1].lower() == "adddoc":
+# # Add document to index
 
-# if sys.argv[1] == "deleteentry":
-# # Delete Entry from Index
+# if sys.argv[1].lower().toLower == "deletedoc":
+# # Delete document from Index
 
-if sys.argv[1] == "query":
+if sys.argv[1].lower() == "query":
 	# Query index
-		
 	# Usage: python elastic-controller.py query <index> <query>
 
 	query = {
@@ -32,7 +31,7 @@ if sys.argv[1] == "query":
 	helpers.query(index,query)
 
 
-if sys.argv[1] == "importcsv":
+if sys.argv[1].lower() == "importcsv":
 	# Import data from CSV
 
 	# Usage: python elastic-controller.py importcsv <index_name> <csv_file> 
@@ -40,10 +39,10 @@ if sys.argv[1] == "importcsv":
 	index_name = sys.argv[3]
 	helpers.csvImport(csv_file,index_name)
 
-# if sys.argv[1] == "importjson":
+# if sys.argv[1].lower() == "importjson":
 # # Import data from JSON file
 
 
-if sys.argv[1] == "help":
+if sys.argv[1].lower() == "help":
 	helpers.display_help()
 
