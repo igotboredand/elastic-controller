@@ -5,18 +5,10 @@ import sys
 import helpers
 
 
-
-
 if len(sys.argv) < 2:
     helpers.display_help()
 
 else:
-
-
-
-
-	# if sys.argv[1].lower() == "add":
-	# # Add index
 
 	# if sys.argv[1].lower() == "delete":
 	# # Delete index
@@ -24,8 +16,12 @@ else:
 	# if sys.argv[1].lower() == "adddoc":
 	# # Add document to index
 
-	# if sys.argv[1].lower() == "deletedoc":
+	if sys.argv[1].lower() == "deletedoc":
 	# # Delete document from Index
+		index = sys.argv[2]
+		doc_type = sys.argv[3]
+		doc_id = sys.argv[4]
+		helpers.deletedoc(index,doc_type,doc_id)
 
 	if sys.argv[1].lower() == "query":
 		# Query index
@@ -38,7 +34,7 @@ else:
 		    }
 		}
 		index = sys.argv[2]
-		# query = sys.argv[3]
+		print(query)
 		helpers.query(index,query)
 
 

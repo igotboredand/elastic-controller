@@ -11,16 +11,20 @@ def csvImport(csv_file,index_name):
 	    reader = csv.DictReader(f)
 	    helpers.bulk(es, reader, index=index_name, doc_type='my-type')
 
+def deletedoc(index,doc_type,doc_id):
+	es = Elasticsearch()
+	es.delete(index=index,doc_type=doc_type,id=doc_id)
+
+# TODO: expand / fix this
+def deletebyquery(index,doc_type,query):
+	es = Elasticsearch()
+	example_query = {'name': 'Jacobian'}
+	es.delete(index=index,doc_type=doc_type,q=example_query)
 
 
 def query(index,body):
 	esclient = Elasticsearch(['localhost:9200'])
-	response = esclient.search(
-	index=index,
-
-	body = body
-	)
-
+	response = esclient.search(index=index, body = body)
 	print(response)
 
 def display_help():
