@@ -6,4 +6,7 @@
 	Query: python elastic-controller.py query <index> <query>
 	Delete Document: python elastic-controller.py deletedoc <index> <document type> <document number>
 	Import CSV: python elastic-controller.py insertcsv <path/to/csv> <index>
+	
+	Queries:
+	term query: python elastic-controller.py term_query <index> <type> <value>
 

@@ -39,14 +39,14 @@ else:
 
 	if sys.argv[1].lower() == "term_query":
 	# Query index
-	# Usage: python elastic-controller.py term_query <index> <term> <value>
+	# Usage: python elastic-controller.py term_query <index> <type> <value>
 		print(len(sys.argv))
 		if len(sys.argv) >= 2:
 		# ask for the index.
-			index_var = sys.argv[2]	
+			index = sys.argv[2]	
 		else:
-			index_var = input("Which index would you like to search?\n")
-			print(index_var)
+			index = input("Which index would you like to search?\n")
+			print(index)
 		if len(sys.argv) >= 3:
 		# ask for the term.
 			term_var = sys.argv[3]		
@@ -60,16 +60,13 @@ else:
 			term_value = input("Which term would you like to search?\n")
 			
 
-		
-		term_query = '"' + str(term_var) + '":"' + str(term_value) + '"'
-		print(term_query)
 		query = {
 		   "query":{
 		      "term":{ term_var:term_value}
 		   		}
 			}
 		print(query)
-		helpers.query(index_var,query)
+		helpers.query(index,query)
 
 
 	if sys.argv[1].lower() == "importcsv":
