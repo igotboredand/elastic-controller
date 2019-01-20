@@ -46,6 +46,7 @@ else:
 			index_var = sys.argv[2]	
 		else:
 			index_var = input("Which index would you like to search?\n")
+			print(index_var)
 		if len(sys.argv) >= 3:
 		# ask for the term.
 			term_var = sys.argv[3]		
@@ -64,7 +65,7 @@ else:
 		print(term_query)
 		query = {
 		   "query":{
-		      "term":{term_query}
+		      "term":{ term_var:term_value}
 		   		}
 			}
 		print(query)
