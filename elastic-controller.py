@@ -16,6 +16,7 @@ else:
 	# if sys.argv[1].lower() == "adddoc":
 	# # Add document to index
 
+
 	if sys.argv[1].lower() == "deletedoc":
 	# # Delete document from Index
 		index = sys.argv[2]
@@ -42,8 +43,8 @@ else:
 		# Import data from CSV
 
 		# Usage: python elastic-controller.py importcsv <index_name> <csv_file> 
-		csv_file = sys.argv[2]
-		index_name = sys.argv[3]
+		csv_file = sys.argv[3]
+		index_name = sys.argv[2]
 		helpers.csvImport(csv_file,index_name)
 
 	# if sys.argv[1].lower() == "importjson":
