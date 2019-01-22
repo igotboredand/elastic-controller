@@ -38,6 +38,35 @@ else:
 		print(query)
 		helpers.query(index,query)
 
+	if sys.argv[1].lower() == "term_query":
+	# Query index
+	# Usage: python elastic-controller.py term_query <index> <type> <value>
+		if len(sys.argv) >= 2:
+		# ask for the index.
+			index = sys.argv[2]	
+		else:
+			index = input("Which index would you like to search?\n")
+
+		if len(sys.argv) >= 3:
+		# ask for the term.
+			term_var = sys.argv[3]		
+		else:
+			term_var = input("Which term would you like to search?\n")
+
+		if len(sys.argv) >= 4:
+		# ask for the term.
+			term_value = sys.argv[4]	
+		else:
+			term_value = input("Which term would you like to search?\n")
+			
+
+		query = {
+		   "query":{
+		      "term":{ term_var:term_value}
+		   		}
+			}
+		helpers.query(index,query)
+
 
 	if sys.argv[1].lower() == "importcsv":
 		# Import data from CSV

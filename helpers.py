@@ -1,4 +1,5 @@
 from elasticsearch import Elasticsearch
+import json
 
 # csv import
 def csvImport(csv_file,index_name):
@@ -25,7 +26,7 @@ def deletebyquery(index,doc_type,query):
 def query(index,body):
 	esclient = Elasticsearch(['localhost:9200'])
 	response = esclient.search(index=index, body = body)
-	print(response)
+	print(json.dumps(response, indent=4))
 
 def display_help():
 	print("Help is on the way!")
